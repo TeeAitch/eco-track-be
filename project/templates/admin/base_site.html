@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% load i18n static %}
+
+{% block branding %}
+<h1 id="head">
+
+  <a href="{% url 'admin:index' %}">
+    {% translate 'ADMIN AREA' %}
+  </a>
+
+</h1>
+{% endblock %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'admin/css/admin.css' %}">
+{% endblock %}

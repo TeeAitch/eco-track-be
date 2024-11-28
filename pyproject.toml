@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "eco-track-be"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.3"
+django-modeltranslation = "^0.19.11"
+django-cors-headers = "^4.6.0"
+drf-spectacular = "^0.27.2"
+django-translation-flags = "^1.0.6"
+coverage = "^7.6.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pylint = "^3.3.1"
+pylint-django = "^2.6.1"
+coverage = "^7.6.4"
+
+[tool.black]
+line-length = 79
+
+[tool.poetry.scripts]
+format = "black . --line-length 79"
+
+[tool.isort]
+profile = "black"
+py_version = 311
+known_django = ["django"]
+known_first_party = ["core", "users"]
+known_third_party = [
+    "rest_framework",
+    "requests",
+    "rest_framework_simplejwt",
+    "pillow",
+    "markdown",
+    "django_filter",
+    "daphne",
+    "channels",
+    "gunicorn",
+    "drf_spectacular",
+    "watchdog"
+]
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRD_PARTY", "FIRSTPARTY", "LOCALFOLDER"]
+default_section = "THIRD_PARTY"
+order_by_type = true
+line_length = 79

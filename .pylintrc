@@ -1,0 +1,23 @@
+[MASTER]
+# Load necessary plugins
+load-plugins=pylint_django
+django-settings-module=project.config.settings
+
+# Python code to be checked, comma-separated.
+init-hook='import sys; import site; site_packages_path = site.getsitepackages()[0]; sys.path.insert(0, site_packages_path)'
+
+# Specify the expected Python version
+py-version=3.12
+
+# Set the output format.
+output-format=text
+
+# Ignore migrations folder
+ignore=migrations
+ignore-patterns=migrations/.*\.py,.*# noqa$
+disable=too-many-ancestors,too-few-public-methods,no-member,abstract-method,broad-exception-caught
+
+
+[FORMAT]
+# Maximum number of characters on a single line.
+max-line-length=79

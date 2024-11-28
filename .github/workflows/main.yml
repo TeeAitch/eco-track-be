@@ -1,0 +1,75 @@
+name: Django CI/CD
+
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # check-out repo and set-up python
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      # install & configure poetry
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      # load cached venv if cache exists
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      #install dependencies if cache does not exist
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
+
+      # install your root project, if required
+      - name: Install project
+        run: poetry install --no-interaction --no-root
+
+      # Run black to format code
+      - name: Run black
+        run: |
+          poetry run black project
+
+      # Run isort to check import sorting
+      - name: Run isort
+        run: |
+          poetry run isort project
+
+      # Run pylint to check for code quality issues
+      - name: Run pylint
+        env:
+          DJANGO_SETTINGS_MODULE: "project.config.settings"
+        continue-on-error: true
+        run: |
+          poetry run pylint --load-plugins pylint_django --ignore=migrations,.venv --ignore-patterns='migrations/.*\.py' --disable=too-many-ancestors .
+
+      # This step runs the Django test suite with coverage tracking.
+      # 1. Removes any existing coverage data.
+      # 2. Runs tests and tracks coverage using `coverage`.
+      # 3. Displays a text-based coverage report in the terminal.
+      # 4. Generates an HTML coverage report for detailed review.
+      - name: Run tests
+        working-directory: ./project
+
+        run: |
+          rm -f .coverage
+          poetry run coverage run --source='.' manage.py test apps
+          poetry run coverage report
+          poetry run coverage html

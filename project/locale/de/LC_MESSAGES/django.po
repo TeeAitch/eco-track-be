@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-28 19:13+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: apps/core/apps.py:15
+msgid "Core"
+msgstr "Core"
+
+#: apps/users/apps.py:15
+msgid "Users"
+msgstr "Benutzer"
+
+#: apps/users/models.py:40
+msgid "The Email must be set"
+msgstr "Die E-Mail muss angegeben werden."
+
+#: apps/users/models.py:63
+msgid "Superuser must have is_staff=True."
+msgstr "Ein Superuser muss is_staff=True haben."
+
+#: apps/users/models.py:65
+msgid "Superuser must have is_superuser=True."
+msgstr "Ein Superuser muss is_superuser=True haben."
+
+#: apps/users/models.py:77
+msgid "The unique identifier for the object."
+msgstr "Der eindeutige Bezeichner für das Objekt."
+
+#: apps/users/models.py:80
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: apps/users/models.py:83
+msgid "The oganisation email address for the user."
+msgstr "Die Organisations-E-Mail-Adresse des Benutzers."
+
+#: apps/users/models.py:89
+msgid "Firstname"
+msgstr "Vorname"
+
+#: apps/users/models.py:90
+msgid "The first name of the user."
+msgstr "Der Vorname des Benutzers."
+
+#: apps/users/models.py:96
+msgid "Lastname"
+msgstr "Nachname"
+
+#: apps/users/models.py:97
+msgid "The last name of the user."
+msgstr "Der Nachname des Benutzers."
+
+#: apps/users/models.py:102
+msgid "Indicates whether the user is a staff member."
+msgstr "Gibt an, ob der Benutzer ein Mitarbeiter ist."
+
+#: apps/users/models.py:132
+msgid "Groups"
+msgstr "Gruppen"
+
+#: apps/users/models.py:139
+msgid "Admin"
+msgstr "Administrator"
+
+#: config/settings.py:172
+msgid "German"
+msgstr "Deutsch"
+
+#: config/settings.py:173
+msgid "English"
+msgstr "Englisch"
+
+#: templates/admin/base.html:54
+msgid "Skip to main content"
+msgstr "Zum Hauptinhalt springen"
+
+#: templates/admin/base.html:74
+msgid "Welcome,"
+msgstr "Willkommen,"
+
+#: templates/admin/base.html:81
+msgid "View site"
+msgstr "Website ansehen"
+
+#: templates/admin/base.html:85
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: templates/admin/base.html:93
+msgid "Log out"
+msgstr "Abmelden"
+
+#: templates/admin/base.html:97
+msgid "LANGUAGE"
+msgstr "SPRACHE"
+
+#: templates/admin/base.html:114
+msgid "DOCUMENTATION"
+msgstr "DOKUMENTATION"
+
+#: templates/admin/base.html:139
+msgid "Breadcrumbs"
+msgstr "Brotkrümelnavigation"
+
+#: templates/admin/base.html:142
+msgid "Home"
+msgstr "Startseite"
+
+#: templates/admin/base_site.html:8
+msgid "ADMIN AREA"
+msgstr "ADMINISTRATORBEREICH"
